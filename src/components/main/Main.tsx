@@ -13,8 +13,6 @@ const Main: React.FC = () => {
     setValue(`${typePuzza} пиццы`);
   });
 
-  console.log("2");
-
   return (
     <main className="main">
       <h1>{value}</h1>
@@ -23,6 +21,7 @@ const Main: React.FC = () => {
           newSortPizza.map((pizza) => (
             <PizzaItem
               key={pizza.id}
+              id={pizza.id}
               url={pizza.url}
               name={pizza.name}
               price={pizza.price}

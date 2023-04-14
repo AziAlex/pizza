@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sortSlice from "./sortPizza/sortSlice";
+import buyState from "./buyPizza/buySlice";
 
 export const store = configureStore({
   reducer: {
     newPizzaList: sortSlice,
+    buyBasket: buyState,
   },
 });
 

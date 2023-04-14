@@ -15,10 +15,19 @@ export interface WidthSise {
 }
 
 export interface Pizza {
-  id?: string;
+  id: string;
   url: string;
   name: string;
   price: number;
   type: IType;
   width: ISise;
+}
+
+export interface PizzaState {
+  id: string;
+  img: string;
+  name: string;
+  type: string;
+  sise: string;
+  price: number;
 }

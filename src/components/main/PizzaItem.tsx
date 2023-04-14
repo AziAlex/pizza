@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { valueFormat } from "../../utils/valueFormat";
-import { ISise, IType, Pizza, WidthSise } from "./pizzaTypes";
+import { ISise, IType, Pizza, PizzaState, WidthSise } from "./pizzaTypes";
+import { addItem } from "../../redux/buyPizza/buySlice";
 
-const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
+const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price, id }) => {
   const [typePizza, setTypePizza] = useState<IType>({ ...type });
   const [widthPizza, setWidthPizza] = useState<ISise>({ ...width });
   const [typesPizza, setTypesPizza] = useState<number>(0);
   const [sisePizza, setSisePizza] = useState<number>(0);
+  const dispatch = useDispatch();
+  const pzType: WidthSise = newPizzaTypeSize(typePizza);
+  const pzSise: WidthSise = newPizzaTypeSize(widthPizza);
+
+  const pizzaState: PizzaState = {
+    id: id,
+    img: url,
+    name: name,
+    type: pzType.value,
+    sise: pzSise.value,
+    price: typesPizza + sisePizza + price,
+  };
 
   const typePyzzaHandler = (spanState: number) => {
     setTypePizza({
@@ -42,10 +56,14 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
     });
   };
 
+  function newPizzaTypeSize(obj: ISise | IType) {
+    const truePrice = Object.entries(obj).map((i) => i);
+    return truePrice.find((i) => i[1].select === true)?.[1];
+  }
+
   useEffect(() => {
     newPrice();
   }, [widthPizza]);
-
   useEffect(() => {
     finallPrice();
   }, [typePizza]);
@@ -67,11 +85,6 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
     } else {
       setTypesPizza(50);
     }
-  }
-
-  function newPizzaTypeSize(obj: ISise | IType) {
-    const truePrice = Object.entries(obj).map((i) => i);
-    return truePrice.find((i) => i[1].select === true)?.[1];
   }
 
   return (
@@ -116,7 +129,9 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
       </div>
       <div className="price-block">
         <span>от {valueFormat(typesPizza + sisePizza + price)}</span>
-        <button>+ Добавить</button>
+        <button onClick={() => dispatch(addItem(pizzaState))}>
+          + Добавить
+        </button>
       </div>
     </div>
   );
