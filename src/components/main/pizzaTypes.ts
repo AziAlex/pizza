@@ -1,15 +1,24 @@
+export interface IType {
+  select1: WidthSise;
+  select2: WidthSise;
+}
+
+export interface ISise {
+  select1: WidthSise;
+  select2: WidthSise;
+  select3: WidthSise;
+}
+export interface WidthSise {
+  id: number;
+  select: boolean;
+  value: string;
+}
+
 export interface Pizza {
   id?: string;
   url: string;
   name: string;
   price: number;
-  type: {
-    select1: { id: number; select: boolean; value: string };
-    select2: { id: number; select: boolean; value: string };
-  };
-  width: {
-    select1: { id: number; select: boolean; value: string };
-    select2: { id: number; select: boolean; value: string };
-    select3: { id: number; select: boolean; value: string };
-  };
+  type: IType;
+  width: ISise;
 }

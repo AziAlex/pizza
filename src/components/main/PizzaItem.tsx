@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { valueFormat } from "../../utils/valueFormat";
-import { Pizza } from "./pizzaTypes";
+import { ISise, IType, Pizza, WidthSise } from "./pizzaTypes";
 
 const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
-  const [typePizza, setTypePizza] = useState({ ...type });
-  const [widthPizza, setWidthPizza] = useState({ ...width });
-  const [newPriceCount, setNewPriceCount] = useState<number>(price);
+  const [typePizza, setTypePizza] = useState<IType>({ ...type });
+  const [widthPizza, setWidthPizza] = useState<ISise>({ ...width });
+  const [typesPizza, setTypesPizza] = useState<number>(0);
+  const [sisePizza, setSisePizza] = useState<number>(0);
 
   const typePyzzaHandler = (spanState: number) => {
     setTypePizza({
@@ -45,18 +46,32 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
     newPrice();
   }, [widthPizza]);
 
-  let newPrices = price;
+  useEffect(() => {
+    finallPrice();
+  }, [typePizza]);
 
-  async function newPrice() {
-    const truePrice = Object.entries(widthPizza).map((i) => i);
-    const arr = truePrice.find((i) => i[1].select === true)?.[1];
-    if (arr?.value === "26 cm") {
-      setNewPriceCount(price + 25);
-    } else if (arr?.value === "30 cm") {
-      setNewPriceCount(price + 50);
+  function newPrice() {
+    const arr: WidthSise = newPizzaTypeSize(widthPizza);
+    if (arr.value === "26 cm") {
+      setSisePizza(0);
+    } else if (arr.value === "30 cm") {
+      setSisePizza(50);
     } else {
-      setNewPriceCount(price + 75);
+      setSisePizza(100);
     }
+  }
+  function finallPrice() {
+    const arr: WidthSise = newPizzaTypeSize(typePizza);
+    if (arr.value === "тонкое") {
+      setTypesPizza(0);
+    } else {
+      setTypesPizza(50);
+    }
+  }
+
+  function newPizzaTypeSize(obj: ISise | IType) {
+    const truePrice = Object.entries(obj).map((i) => i);
+    return truePrice.find((i) => i[1].select === true)?.[1];
   }
 
   return (
@@ -100,7 +115,7 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
         </div>
       </div>
       <div className="price-block">
-        <span>от {valueFormat(newPriceCount)}</span>
+        <span>от {valueFormat(typesPizza + sisePizza + price)}</span>
         <button>+ Добавить</button>
       </div>
     </div>
