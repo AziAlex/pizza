@@ -1,0 +1,72 @@
+@import "../common/media-mixin.scss";
+
+.sort-block {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+
+  .sort-bar {
+    max-width: fit-content;
+    overflow-x: auto;
+    display: flex;
+    gap: 5px;
+    padding-bottom: 15px;
+
+    .sort-item {
+      border-radius: 30px;
+      height: fit-content;
+      padding: 10px 15px;
+      user-select: none;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    @include table {
+      .sort-item {
+        padding: 4px 8px;
+      }
+    }
+
+    .active {
+      background: #282828;
+      color: #fff;
+    }
+  }
+
+  @include desktop {
+    .sort-bar {
+      gap: 0;
+    }
+  }
+
+  //   ----------------- right block \\\\\
+  .sort-menu {
+    margin-left: 20px;
+    position: relative;
+
+    img {
+      width: 30px;
+      user-select: none;
+    }
+
+    .sort {
+      position: absolute;
+      left: -100px;
+      display: none;
+
+      li {
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+    .active-sort {
+      display: block;
+    }
+  }
+}
+
+@include table {
+  .sort-block {
+    margin-top: 20px;
+  }
+}

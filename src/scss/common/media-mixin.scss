@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+@mixin desktop() {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+@mixin leptop() {
+  @media (max-width: $leptop) {
+    @content;
+  }
+}
+@mixin table() {
+  @media (max-width: $table) {
+    @content;
+  }
+}
+@mixin phone() {
+  @media (max-width: $phone) {
+    @content;
+  }
+}
+@mixin minphone() {
+  @media (max-width: $minphone) {
+    @content;
+  }
+}

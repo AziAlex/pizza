@@ -1,0 +1,137 @@
+@import "../common/media-mixin.scss";
+
+.main {
+  .pizza-box {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    .item {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+      img {
+        width: clamp(11.25rem, 0.494rem + 16.81vw, 16.25rem);
+      }
+      h2 {
+        text-align: center;
+        font-size: clamp(1.125rem, -0.125rem + 2vw, 1.5rem);
+      }
+      .info-pizza {
+        background: #f3f3f3;
+        border-radius: 10px;
+        width: 100%;
+        .type-piza {
+          display: flex;
+          justify-content: space-between;
+          span {
+            margin: 3px 5px;
+            padding: 2px 0;
+            text-align: center;
+            width: calc(50% - 5px);
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .type-piza-active {
+            background-color: #fff;
+          }
+        }
+        .width-pizza {
+          display: flex;
+          justify-content: space-between;
+          span {
+            margin: 3px 5px;
+            padding: 2px 0;
+            text-align: center;
+            width: calc(33.3% - 5px);
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .type-piza-active {
+            background-color: #fff;
+          }
+        }
+      }
+      .price-block {
+        margin: 25px 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          font-size: 20px;
+          font-weight: 700;
+          font-size: clamp(1rem, -0.855rem + 2.9vw, 1.5rem);
+        }
+        button {
+          color: #eb5a1e;
+          font-weight: 900;
+          background: #fff;
+          outline: none;
+          border: 1px solid #fe5f1e;
+          border-radius: 30px;
+          padding: 10px 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          &:hover {
+            transition: 0.25s;
+            background: #fe5f1e;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  @include leptop {
+    .item {
+      width: 100%;
+    }
+  }
+  @include table {
+    .pizza-box {
+      grid-template-columns: repeat(3, 33.3%);
+      .item {
+        img {
+          width: clamp(9.375rem, 3.75rem + 20vw, 11.25rem);
+        }
+        .type-piza {
+          font-size: 14px;
+        }
+        .width-pizza {
+          span {
+            font-size: clamp(0.813rem, 0.344rem + 1.5vw, 1rem);
+          }
+        }
+        .price-block {
+          margin: 15px 0;
+          flex-direction: column;
+          span {
+            font-size: 16px;
+          }
+          button {
+            padding: 4px 8px;
+          }
+        }
+      }
+    }
+  }
+  @include phone {
+    .pizza-box {
+      grid-template-columns: repeat(2, 50%);
+    }
+  }
+  @include minphone {
+    .pizza-box {
+      grid-template-columns: 100%;
+      .item {
+        width: 100%;
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

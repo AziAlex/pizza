@@ -1,0 +1,29 @@
+.basket {
+  background: #fe5f1e;
+  border-radius: 30px;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #da4a11;
+    transition: 0.25s;
+  }
+
+  .line {
+    width: 1px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 13px;
+  }
+  .count {
+    display: flex;
+    flex-wrap: nowrap;
+    img {
+      margin-right: 8px;
+    }
+  }
+}

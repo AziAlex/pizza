@@ -1,0 +1,37 @@
+@import "./basket.scss";
+@import "../common/media-mixin.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    img {
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(1.125rem, 0.625rem + 2vw, 1.5rem);
+    }
+
+    h4 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #7b7b7b;
+    }
+    @include table {
+      h4 {
+        display: none;
+      }
+    }
+  }
+}
