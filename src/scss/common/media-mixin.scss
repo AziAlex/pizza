@@ -25,3 +25,8 @@
     @content;
   }
 }
+@mixin mediaQery($qery) {
+  @media (max-width: $qery) {
+    @content;
+  }
+}

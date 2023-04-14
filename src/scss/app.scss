@@ -1,6 +1,7 @@
 @import "./header/header.scss";
 @import "./sort/sort.scss";
 @import "./main/item.scss";
+@import "./basket/mainBasket.scss";
 
 @import "./common/variables.scss";
 @import "./common/media-mixin.scss";
@@ -36,7 +37,8 @@ body {
       .wrap {
         margin: 45px;
 
-        .home {
+        .home,
+        .basket-block {
           box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
           border-radius: 10px;
           padding: 45px;
@@ -44,7 +46,8 @@ body {
         }
 
         @include table {
-          .home {
+          .home,
+          .basket-block {
             padding: 10px;
           }
         }

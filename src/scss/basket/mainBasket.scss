@@ -1,0 +1,18 @@
+@import "../common/media-mixin.scss";
+
+.main-basket {
+  margin: auto;
+  margin-top: 100px;
+  width: 60%;
+}
+
+@include mediaQery(1500px) {
+  .main-basket {
+    width: 80%;
+  }
+}
+@include mediaQery(1300px) {
+  .main-basket {
+    width: 100%;
+  }
+}
