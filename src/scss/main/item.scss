@@ -6,10 +6,12 @@
     grid-template-columns: repeat(4, 25%);
     .item {
       margin: auto;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       user-select: none;
+      justify-content: space-between;
       img {
         width: clamp(11.25rem, 0.494rem + 16.81vw, 16.25rem);
       }

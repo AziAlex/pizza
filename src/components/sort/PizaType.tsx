@@ -1,26 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { pizzas } from "../main/dataPizza";
+import { useDispatch } from "react-redux";
+import { sort } from "../../redux/sortPizza/sortSlice";
 
 const PizaType: React.FC = () => {
   const [pizzaList, setPizzaList] = useState(pizzas);
-
-  const DefaultSort = () => {
-    setPizzaList(pizzas);
-  };
-  const MeatSort = () => {
-    setPizzaList(
-      pizzaList.filter(
-        (pizza) => pizza.name.toLowerCase() === "cырный цыпленок"
-      )
-    );
-  };
+  const dispatch = useDispatch();
 
   return (
     <div className="sort-bar">
       <NavLink
         to="/"
-        onClick={DefaultSort}
+        onClick={() => dispatch(sort.SortDefault())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
@@ -29,7 +21,7 @@ const PizaType: React.FC = () => {
       </NavLink>
       <NavLink
         to="/Мясные"
-        onClick={MeatSort}
+        onClick={() => dispatch(sort.SortMeat())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
@@ -38,6 +30,7 @@ const PizaType: React.FC = () => {
       </NavLink>
       <NavLink
         to="/Вегетарианская"
+        onClick={() => dispatch(sort.SortVegetarian())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
@@ -46,6 +39,7 @@ const PizaType: React.FC = () => {
       </NavLink>
       <NavLink
         to="/Гриль"
+        onClick={() => dispatch(sort.SortGrill())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
@@ -54,6 +48,7 @@ const PizaType: React.FC = () => {
       </NavLink>
       <NavLink
         to="/Острые"
+        onClick={() => dispatch(sort.Sortsharp())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
@@ -62,6 +57,7 @@ const PizaType: React.FC = () => {
       </NavLink>
       <NavLink
         to="/Закрытые"
+        onClick={() => dispatch(sort.SortClose())}
         className={({ isActive }) =>
           isActive ? "active sort-item" : "sort-item"
         }
