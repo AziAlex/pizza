@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { valueFormat } from "../../utils/valueFormat";
 import { Pizza } from "./pizzaTypes";
 
 const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
   const [typePizza, setTypePizza] = useState({ ...type });
   const [widthPizza, setWidthPizza] = useState({ ...width });
+  const [newPriceCount, setNewPriceCount] = useState<number>(price);
 
   const typePyzzaHandler = (spanState: number) => {
     setTypePizza({
@@ -39,6 +40,24 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
       },
     });
   };
+
+  useEffect(() => {
+    newPrice();
+  }, [widthPizza]);
+
+  let newPrices = price;
+
+  async function newPrice() {
+    const truePrice = Object.entries(widthPizza).map((i) => i);
+    const arr = truePrice.find((i) => i[1].select === true)?.[1];
+    if (arr?.value === "26 cm") {
+      setNewPriceCount(price + 25);
+    } else if (arr?.value === "30 cm") {
+      setNewPriceCount(price + 50);
+    } else {
+      setNewPriceCount(price + 75);
+    }
+  }
 
   return (
     <div className="item">
@@ -81,7 +100,7 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price }) => {
         </div>
       </div>
       <div className="price-block">
-        <span>от {valueFormat(price)}</span>
+        <span>от {valueFormat(newPriceCount)}</span>
         <button>+ Добавить</button>
       </div>
     </div>
