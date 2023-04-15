@@ -38,7 +38,8 @@ body {
         margin: 45px;
 
         .home,
-        .basket-block {
+        .basket-block,
+        .basket-notfaund-block {
           box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
           border-radius: 10px;
           padding: 45px;
@@ -47,7 +48,8 @@ body {
 
         @include table {
           .home,
-          .basket-block {
+          .basket-block,
+          .basket-notfaund-block {
             padding: 10px;
           }
         }

@@ -62,19 +62,4 @@ export const pizzas: Pizza[] = [
       select3: { id: 3, select: false, value: "40 cm" },
     },
   },
-  {
-    id: vId(),
-    url: "/pizza/img1.png",
-    name: "Чизбургер-пицца",
-    price: 395,
-    type: {
-      select1: { id: 1, select: true, value: "тонкое" },
-      select2: { id: 2, select: false, value: "обычное" },
-    },
-    width: {
-      select1: { id: 1, select: true, value: "26 cm" },
-      select2: { id: 2, select: false, value: "30 cm" },
-      select3: { id: 3, select: false, value: "40 cm" },
-    },
-  },
 ];

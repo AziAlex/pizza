@@ -8,6 +8,7 @@ const Main: React.FC = () => {
   const newSortPizza = useSelector(
     (state: RootState) => state.newPizzaList.allPizza
   );
+
   setTimeout(() => {
     const typePuzza = document.querySelector(".active")?.textContent;
     setValue(`${typePuzza} пиццы`);

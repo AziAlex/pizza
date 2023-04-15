@@ -1,4 +1,6 @@
 @import "../common/media-mixin.scss";
+@import "./components.scss";
+@import "./basketNotFound.scss";
 
 .main-basket {
   margin: auto;
@@ -14,5 +16,12 @@
 @include mediaQery(1300px) {
   .main-basket {
     width: 100%;
+    margin-top: 50px;
+  }
+}
+
+@include table {
+  .main-basket {
+    margin-top: 30px;
   }
 }

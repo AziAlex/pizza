@@ -14,12 +14,14 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price, id }) => {
   const pzSise: WidthSise = newPizzaTypeSize(widthPizza);
 
   const pizzaState: PizzaState = {
+    count: 1,
     id: id,
     img: url,
     name: name,
     type: pzType.value,
     sise: pzSise.value,
     price: typesPizza + sisePizza + price,
+    tottalPrice: typesPizza + sisePizza + price,
   };
 
   const typePyzzaHandler = (spanState: number) => {

@@ -24,10 +24,12 @@ export interface Pizza {
 }
 
 export interface PizzaState {
+  count: number;
   id: string;
   img: string;
   name: string;
   type: string;
   sise: string;
   price: number;
+  tottalPrice: number;
 }
