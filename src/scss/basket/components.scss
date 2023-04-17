@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   user-select: none;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   h2 {
     display: flex;
     align-items: center;
@@ -70,6 +70,10 @@
 
 .items-block {
   width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 15px;
+  height: 60vh;
   .buy-item {
     display: flex;
     justify-content: space-between;

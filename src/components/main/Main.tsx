@@ -23,6 +23,7 @@ const Main: React.FC = () => {
             <PizzaItem
               key={pizza.id}
               id={pizza.id}
+              types={pizza.types}
               url={pizza.url}
               name={pizza.name}
               price={pizza.price}

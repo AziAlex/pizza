@@ -14,27 +14,41 @@ export const sortSlice = createSlice({
       state.allPizza = pizzas;
     },
     SortMeat: (state) => {
-      state.allPizza = pizzas.filter(
-        (pizza) => pizza.name === "Сырный цыпленок"
-      );
+      state.allPizza = pizzas.filter((pizza) => pizza.types === "meat");
     },
     SortVegetarian: (state) => {
-      state.allPizza = pizzas.filter(
-        (pizza) => pizza.name === "Чизбургер-пицца"
-      );
+      state.allPizza = pizzas.filter((pizza) => pizza.types === "vega");
     },
     SortGrill: (state) => {
-      state.allPizza = pizzas.filter((pizza) => pizza.name === "Сырная");
+      state.allPizza = pizzas.filter((pizza) => pizza.types === "gril");
     },
     Sortsharp: (state) => {
-      state.allPizza = pizzas.filter(
-        (pizza) => pizza.name === "Креветки по-азиатски"
-      );
+      state.allPizza = pizzas.filter((pizza) => pizza.types === "sharp");
     },
     SortClose: (state) => {
       state.allPizza = pizzas.filter(
         (pizza) => pizza.name === "Закрытая-пицца"
       );
+    },
+    SortABC: (state) => {
+      state.allPizza = state.allPizza.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
+    },
+    SortCBA: (state) => {
+      state.allPizza = state.allPizza.sort((a, b) => {
+        if (b.name < a.name) return -1;
+        if (b.name > a.name) return 1;
+        return 0;
+      });
+    },
+    Sort123: (state) => {
+      state.allPizza = state.allPizza.sort((a, b) => a.price - b.price);
+    },
+    Sort321: (state) => {
+      state.allPizza = state.allPizza.sort((a, b) => b.price - a.price);
     },
   },
 });
@@ -46,5 +60,9 @@ export const sort = {
   SortMeat: sortSlice.actions.SortMeat,
   SortVegetarian: sortSlice.actions.SortVegetarian,
   Sortsharp: sortSlice.actions.Sortsharp,
+  SortABC: sortSlice.actions.SortABC,
+  SortCBA: sortSlice.actions.SortCBA,
+  Sort123: sortSlice.actions.Sort123,
+  Sort321: sortSlice.actions.Sort321,
 };
 export default sortSlice.reducer;

@@ -41,9 +41,7 @@ const buyState = createSlice({
       }
     },
     deleteAllItems: (state) => {
-      if (confirm("Вы точно хотите очистить корзину?")) {
-        state.buyItems.splice(0);
-      }
+      state.buyItems.splice(0);
     },
     incrementCount: (state, action: PayloadAction<PizzaState>) => {
       const { id, count } = action.payload;

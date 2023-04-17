@@ -15,6 +15,7 @@ export interface WidthSise {
 }
 
 export interface Pizza {
+  types: string;
   id: string;
   url: string;
   name: string;

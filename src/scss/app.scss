@@ -2,6 +2,7 @@
 @import "./sort/sort.scss";
 @import "./main/item.scss";
 @import "./basket/mainBasket.scss";
+@import "./modals/modal.scss";
 
 @import "./common/variables.scss";
 @import "./common/media-mixin.scss";
@@ -53,6 +54,14 @@ body {
             padding: 10px;
           }
         }
+        @include leptop {
+          .home,
+          .basket-block,
+          .basket-notfaund-block {
+            padding: 10px;
+            height: 100%;
+          }
+        }
       }
     }
     @include leptop {
@@ -60,6 +69,7 @@ body {
         width: 100%;
         .wrap {
           margin: 0;
+          height: 100vh;
         }
       }
     }
