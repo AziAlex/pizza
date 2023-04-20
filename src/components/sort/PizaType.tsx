@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { pizzas } from "../main/dataPizza";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sort } from "../../redux/sortPizza/sortSlice";
 import { ISortItems } from "./types";
+import { RootState } from "../../redux/store";
 
 const initialState: ISortItems = {
   link1: { id: 1, select: true },
@@ -16,6 +17,11 @@ const initialState: ISortItems = {
 
 const PizaType: React.FC = () => {
   const [activeLink, setActiveLink] = useState(initialState);
+
+  const sortItems = useSelector(
+    (state: RootState) => state.newPizzaList.allPizza[0].types
+  );
+  console.log(sortItems);
 
   const dispatch = useDispatch();
 
