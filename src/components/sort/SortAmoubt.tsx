@@ -11,6 +11,7 @@ const SortAmoubt: React.FC = () => {
       <img
         id="sort-burger"
         src="/sort-7.svg"
+        alt="sort"
         onClick={() => setMenuState(!menuState)}
       />
       <ul className={menuState ? "sort active-sort" : "sort"}>

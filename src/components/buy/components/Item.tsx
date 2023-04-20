@@ -8,7 +8,7 @@ import {
   removeItem,
 } from "../../../redux/buyPizza/buySlice";
 
-const Item = () => {
+const Item: React.FC = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.buyBasket.buyItems);
 
@@ -17,7 +17,7 @@ const Item = () => {
       {items.map((item) => (
         <li className="buy-item" key={item.id}>
           <div className="left-block">
-            <img src={item.img} />
+            <img src={item.img} alt={item.name} />
             <div className="info-item">
               <h3>{item.name}</h3>
               <p>

@@ -13,7 +13,7 @@ const Purchase: React.FC = () => {
       <span className="price">{valueFormat(tottalPrice)}</span>
       <span className="line"></span>
       <span className="count">
-        <img src="/basket.svg" />
+        <img src="/basket.svg" alt="Buy" />
         {tottalBuy}
       </span>
     </div>
