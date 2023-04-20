@@ -13,9 +13,9 @@ const Item = () => {
   const items = useSelector((state: RootState) => state.buyBasket.buyItems);
 
   return (
-    <div className="items-block">
+    <ul className="items-block">
       {items.map((item) => (
-        <div className="buy-item" key={item.id}>
+        <li className="buy-item" key={item.id}>
           <div className="left-block">
             <img src={item.img} />
             <div className="info-item">
@@ -39,9 +39,9 @@ const Item = () => {
               +
             </button>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

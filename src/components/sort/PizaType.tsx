@@ -13,9 +13,8 @@ const PizaType: React.FC = () => {
   const activeLinkHanler = (id: number, fun: unknown) => {};
 
   return (
-    <div className="sort-bar">
-      <a
-        href="#"
+    <ul className="sort-bar">
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link1.id)),
             dispatch(sort.SortDefault());
@@ -23,16 +22,16 @@ const PizaType: React.FC = () => {
         className={sortBar.link1.select ? "active sort-item" : "sort-item"}
       >
         Все
-      </a>
-      <a
+      </li>
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link2.id)), dispatch(sort.SortMeat());
         }}
         className={sortBar.link2.select ? "active sort-item" : "sort-item"}
       >
         Мясные
-      </a>
-      <a
+      </li>
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link3.id)),
             dispatch(sort.SortVegetarian());
@@ -40,32 +39,32 @@ const PizaType: React.FC = () => {
         className={sortBar.link3.select ? "active sort-item" : "sort-item"}
       >
         Вегетарианская
-      </a>
-      <a
+      </li>
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link4.id)), dispatch(sort.SortGrill());
         }}
         className={sortBar.link4.select ? "active sort-item" : "sort-item"}
       >
         Гриль
-      </a>
-      <a
+      </li>
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link5.id)), dispatch(sort.Sortsharp());
         }}
         className={sortBar.link5.select ? "active sort-item" : "sort-item"}
       >
         Острые
-      </a>
-      <a
+      </li>
+      <li
         onClick={() => {
           dispatch(setActiveLink(sortBar.link6.id)), dispatch(sort.SortClose());
         }}
         className={sortBar.link6.select ? "active sort-item" : "sort-item"}
       >
         Закрытые
-      </a>
-    </div>
+      </li>
+    </ul>
   );
 };
 

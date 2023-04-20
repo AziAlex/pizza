@@ -91,7 +91,7 @@ const PizzaItem: React.FC<Pizza> = ({ url, name, type, width, price, id }) => {
 
   return (
     <div className="item">
-      <img src={url} alt="" />
+      <img draggable={false} src={url} alt="" />
       <h2>{name}</h2>
       <div className="info-pizza">
         <div className="type-piza">

@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Buy = () => {
   return (
     <div className="buy-block">
-      <button>
-        <img src="/_Path_.svg" />
-        Вернуться назад
-      </button>
+      <Link to="/">
+        <button>
+          <img src="/_Path_.svg" />
+          Вернуться назад
+        </button>
+      </Link>
       <button>Оплатить сейчас</button>
     </div>
   );
