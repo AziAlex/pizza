@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { pizzas } from "../../components/main/dataPizza";
-import { Pizza } from "../../components/main/pizzaTypes";
 
 const initialState = {
   allPizza: pizzas,

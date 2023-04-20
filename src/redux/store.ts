@@ -12,10 +12,12 @@ import {
 import storage from "redux-persist/lib/storage";
 import sortSlice from "./sortPizza/sortSlice";
 import buyState from "./buyPizza/buySlice";
+import sortBar from "./sortPizza/sortBarSlice";
 
 const rootReducer = combineReducers({
   newPizzaList: sortSlice,
   buyBasket: buyState,
+  sorts: sortBar,
 });
 
 const persistConfig = {

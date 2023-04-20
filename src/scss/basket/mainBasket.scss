@@ -1,6 +1,7 @@
 @import "../common/media-mixin.scss";
 @import "./components.scss";
 @import "./basketNotFound.scss";
+@import "./buy.scss";
 
 .main-basket {
   margin: auto;
@@ -17,6 +18,15 @@
   .main-basket {
     width: 100%;
     margin-top: 50px;
+  }
+}
+
+@include leptop {
+  .main-basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 150px);
   }
 }
 

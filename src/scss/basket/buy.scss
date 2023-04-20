@@ -1,0 +1,46 @@
+@import "../common/media-mixin.scss";
+
+.buy-block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  button {
+    padding: 16px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:first-child {
+      color: #cacaca;
+      border: 1px solid #cacaca;
+      img {
+        margin-right: 5px;
+      }
+      &:hover {
+        background-color: #fe5f1e;
+        color: #fff;
+      }
+    }
+    &:last-child {
+      background: #fe5f1e;
+      color: #fff;
+      border: none;
+
+      &:hover {
+        background-color: transparent;
+        color: #cacaca;
+        border: 1px solid #cacaca;
+      }
+    }
+  }
+}
+
+@include mediaQery(330px) {
+  .buy-block {
+    flex-direction: column;
+    align-items: center;
+  }
+}

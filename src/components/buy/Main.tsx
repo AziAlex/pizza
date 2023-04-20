@@ -2,6 +2,7 @@ import React from "react";
 import ClearBasket from "./components/ClearBasket";
 import Price from "./components/Price";
 import Item from "./components/Item";
+import Buy from "./components/Buy";
 
 const Main: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const Main: React.FC = () => {
       <ClearBasket />
       <Item />
       <Price />
+      <Buy />
     </main>
   );
 };
