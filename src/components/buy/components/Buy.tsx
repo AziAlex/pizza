@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Buy = () => {
+const Buy: React.FC = () => {
   return (
     <div className="buy-block">
       <Link to="/">
